@@ -33,12 +33,12 @@ jobs:
       - run: yarn test
 
 
-  # percy-snapshots:
-  #   executor: node
-  #   resource_class: medium
-  #   steps:
-  #     - setup
-  #     - run: yarn test:percy
+  storybook:
+    executor: node
+    resource_class: medium
+    steps:
+      - setup
+      - run: yarn snapshot:storybook
 
 workflows:
   version: 2
@@ -46,4 +46,4 @@ workflows:
   test:
     jobs:
       - cypress
-      # - percy-snapshots
+      - storybook
