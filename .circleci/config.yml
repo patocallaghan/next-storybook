@@ -45,6 +45,7 @@ jobs:
     executor: node
     resource_class: medium
     steps:
+      - setup
       - run: yarn percy build:finalize
 
 workflows:
