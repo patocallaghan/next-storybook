@@ -9,9 +9,11 @@
     "lint": "next lint",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "snapshot": "build-storybook && percy storybook ./storybook-static --include='Default Button'",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "cypress:run": "cypress run --browser chrome",
+    "snapshot:storybook": "build-storybook && percy storybook ./storybook-static --include='Default Button'",
+    "snapshot:cypress": "yarn percy exec yarn cypress:run",
+    "test": "start-server-and-test start http://localhost:3000 snapshot:cypress"
   },
   "dependencies": {
     "next": "11.0.1",
@@ -33,6 +35,7 @@
     "cypress": "^8.0.0",
     "eslint": "7.31.0",
     "eslint-config-next": "11.0.1",
+    "start-server-and-test": "^1.13.1",
     "typescript": "4.3.5"
   }
 }

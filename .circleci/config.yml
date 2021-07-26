@@ -1,0 +1,49 @@
+version: 2.1
+
+executors:
+  node:
+    docker:
+      - image: circleci/node:14.15.0-browsers
+        environment:
+          TERM: xterm
+
+commands:
+  setup:
+    steps:
+      - checkout
+      - restore_cache:
+          key: next-storybook-static-dependencies-{{ .Environment.CACHE_VERSION }}-{{ checksum "yarn.lock" }}
+      - run: yarn install --frozen-lockfile
+      - save_cache:
+          paths:
+            - ~/.cache/yarn
+            - ~/.cache/storybook
+            - .next/cache
+            - node_modules
+          key: next-storybook-static-dependencies-{{ .Environment.CACHE_VERSION }}-{{ checksum "yarn.lock" }}
+
+jobs:
+  cypress:
+    executor: node
+    resource_class: medium
+    steps:
+      - setup
+      - run: yarn build
+      - run: yarn cypress install
+      - run: yarn test
+
+
+  # percy-snapshots:
+  #   executor: node
+  #   resource_class: medium
+  #   steps:
+  #     - setup
+  #     - run: yarn test:percy
+
+workflows:
+  version: 2
+
+  test:
+    jobs:
+      - cypress
+      # - percy-snapshots
