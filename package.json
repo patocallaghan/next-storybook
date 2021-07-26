@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "snapshot": "build-storybook && percy storybook ./storybook-static --include='Default Button'"
   },
   "dependencies": {
     "next": "11.0.1",
@@ -17,6 +18,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.14.8",
+    "@percy/cli": "^1.0.0-beta.60",
+    "@percy/storybook": "^4.0.0-beta.2",
     "@storybook/addon-actions": "^6.3.6",
     "@storybook/addon-essentials": "^6.3.6",
     "@storybook/addon-links": "^6.3.6",
