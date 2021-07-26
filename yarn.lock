@@ -1512,6 +1512,11 @@
     widest-line "^3.1.0"
     wrap-ansi "^4.0.0"
 
+"@percy-io/in-percy@^0.1.11":
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/@percy-io/in-percy/-/in-percy-0.1.11.tgz#551f17599ded62a7970fc0277f6cdffc21da89ac"
+  integrity sha512-HSTM01S2lCXb92MU9P5g3ZTr5wLabdHZs9b8jyf0b1TS8ndwCcUBIc3wE2Ne5ScU6p5BOTgVAtOXyAOGuVbDaQ==
+
 "@percy/cli-build@1.0.0-beta.60":
   version "1.0.0-beta.60"
   resolved "https://registry.yarnpkg.com/@percy/cli-build/-/cli-build-1.0.0-beta.60.tgz#6c89e840a442e43c84fc5eb37bb40f1946eaed08"
