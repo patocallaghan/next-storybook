@@ -11,7 +11,7 @@
     "build-storybook": "build-storybook",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run --browser chrome",
-    "snapshot:storybook": "build-storybook && percy storybook --parallel ./storybook-static --include='Default Button'",
+    "snapshot:storybook": "build-storybook && percy storybook --parallel --quiet ./storybook-static --include='Default Button'",
     "snapshot:cypress": "yarn percy exec --parallel yarn cypress:run",
     "test": "start-server-and-test start http://localhost:3000 snapshot:cypress"
   },
