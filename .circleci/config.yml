@@ -40,6 +40,13 @@ jobs:
       - setup
       - run: yarn snapshot:storybook
 
+
+  finalize_percy:
+    executor: node
+    resource_class: medium
+    steps:
+      - run: yarn percy build:finalize
+
 workflows:
   version: 2
 
@@ -47,3 +54,7 @@ workflows:
     jobs:
       - cypress
       - storybook
+      - finalize_percy:
+          requires:
+            - cypress
+            - storybook
